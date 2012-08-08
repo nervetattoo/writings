@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+}
+
+#stack {
+    width: 400px;
+    height: 500px;
+    border: 1px solid green;
+}
+.wrapper .header {
+    background: #FF8500;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid white;
+    clear: both;
+    height: 24px;
+    width: 100%;
+    opacity: .7;
+}
+.wrapper .header h3 {
+    float: left;
+    width: 300px;
+    display: block;
+}
+.wrapper .header .go-back {
+    clear: right
+    float: right;
+    cursor: pointer;
+    display: none;
+}
+.wrapper .body {
+    display: none;
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    clear: both;
+}
+
+.wrapper:last-child .body {
+    display: block;
+}
+
+.wrapper:last-child .header {
+    opacity: 1;
+    border-bottom: none;
+}
+
+.wrapper:last-child .go-back {
+    display: block;
+}
