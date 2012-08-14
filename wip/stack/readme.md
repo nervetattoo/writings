@@ -19,9 +19,9 @@ Let's first nail some requirements for how the stack should work:
 1. You should be able to `push` a new `view` onto the stack
 2. The stack should be responsible for rendering the `view` and itself
 3. You should not destruct individual views as you would normally do, instead you should call on the `stack` to `pop` its last view
-5. The `stack` must implement some way to navigate up the stack behind the scenes
-6. Only the last item should have a visible body
-7. Every view's header should always be visible
+4. The `stack` must implement some way to navigate up the stack behind the scenes
+5. Only the last item should have a visible body
+6. Every view's header should always be visible
 
 ### API
 
