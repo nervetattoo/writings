@@ -93,7 +93,7 @@ pop : function()
 }
 ```
 
-That's the absolute simplest implementation we can do in order to push. It's completely unusable, but suffices for summing up the gist of what we are doing.
+That's the absolute simplest implementation we can do in order to push. It's completely unusable, but suffices for summing up what we are doing.
 Let's flesh it out into a usable state:
 
 ```js
@@ -241,7 +241,7 @@ return this;
 ### Bonus #2: Acting on go-back
 
 Part of the point of the stack is to centralize on a navigation controller and to write DRYer code.
-One particular important problem we solve by using the stack is when View A requires to use View B to find a piece of information.
+One particular important problem we solve by using the stack is when _View A_ requires to use _View B_ to find a piece of information.
 An example is your favorite editor when you are opening a file through your file browser.
 The file browser is reused in a myriad of applications on your computer, you can't put code in it
 that tells `Editor X` to open a file! What you instead want is the file browser to just speak out loud that a file was clicked "Open" on.
