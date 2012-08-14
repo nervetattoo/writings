@@ -8,25 +8,25 @@ window.Stack = Backbone.View.extend({
 
     initialize : function()
     {
+        _.bindAll(this);
         this.template = [
             '<div class="wrapper">',
-                '<div class="header">',
-                    '<h3></h3>', '<a class="go-back">Go back</a>',
-                '</div>',
-                '<div class="body"></div>',
+                '<header>',
+                    '<h3></h3>', '<button type="button" class="go-back">Go back</button>',
+                '</header>',
+                '<section></section>',
             '</div>'
         ].join('');
     },
 
     push : function(view, heading)
     {
-        heading = (heading || 'Default heading');
+        heading = (heading || 'Stack item ' + this.views.length);
         var wrapper = $(this.template).attr('data-index', this.views.length);
         wrapper.find('h3').text(heading)
-        wrapper.css('z-index', 100 + this.views.length);
 
         var stackedView = new view({
-            el: wrapper.find('.body')
+            el: wrapper.find('section')
         });
         this.views.push({
             view : stackedView,
@@ -42,7 +42,11 @@ window.Stack = Backbone.View.extend({
     {
         var child = this.views.pop();
         child.wrapper.addClass('animated fadeOutDown');
-        _.delay(function() { child.wrapper.remove(); }, 140);
+        _.delay(function()
+        {
+            child.view.trigger('closed', child.model, child.collection);
+            child.wrapper.remove();
+        }, 140);
         return this;
     }
 });
@@ -67,8 +71,12 @@ var stack = new Stack({
     el: $('#stack')
 }).render();
 
-$('#add-views li').on('click', function()
+function speak(model, collection)
+{
+    console.log(model, collection);
+};
+$('#add-views button').on('click', function()
 {
     var view = $(this).data('view');
-    stack.push(window[view]);
+    stack.push(window[view]).on('closed', speak);
 });
