@@ -7,7 +7,7 @@ You should have knowledge of `Backbone` plus the jQuery API before reading this.
 ## What's in a stack?
 
 Wikipedia describes a stack as "In computer science, a stack is a last in, first out (LIFO) abstract data type and linear data structure."
-This is exactly what we have made as well. Its a navigational pattern we chose based on its simplicity and the fact that iOS'
+This is exactly what we have made as well. It's a navigational pattern we chose based on its simplicity and the fact that iOS'
 navigation bar is an implementation of a stack that many, many users have gotten used to by now.
 
 In eZ Exceed our stack looks and operates like this: VIDEO
